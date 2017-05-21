@@ -8,3 +8,5 @@
 5. fifth edit from github.com on master
 6. change to be fetched
 7. change to be remote-fetched
+8. change from staging
+
