@@ -7,3 +7,4 @@
 4. fourth edit, 4th edit from test branch
 5. fifth edit from github.com on master
 6. change to be fetched
+7. change to be remote-fetched
