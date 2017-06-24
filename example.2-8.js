@@ -5,13 +5,11 @@
 exports.run = function () {
     var fs = require('fs');
 
-    this.version = 2;
-
     try {
         var data = fs.readFileSync('./apples.txt', 'utf8');
         console.log(data);
 
-        var adjData = data.replace(/[A|a]pple/g, 'oranges and apples');
+        var adjData = data.replace(/[A|a]pple/g, 'orange');
 
         console.log('Writing to new file: ' + adjData);
         fs.writeFileSync('./oranges.txt', adjData);
@@ -27,6 +25,3 @@ exports.run = function () {
         return err;
     }
 };
-
-exports.version = 1;
-

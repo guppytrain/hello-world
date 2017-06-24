@@ -4,18 +4,21 @@
 
 var http = require('http');
 
-var example = require('./example.2-8');
+// var module = require('./runnable_template');
+// var module = require('./eventEmitter');
+// var module = require('./example.2-8');
+var module = require('./example.2-9');
 
 http.createServer(function(req, res) {
     res.writeHead(200, { 'content-type': 'text/plain'});
 
-    res.write('Start...\n');
+    res.write('Start...\n\n');
 
-    var data = example.run.apply(example);
+    var stat = module.run(req, res);
 
-    res.write('\nData: ' + data);
+    res.write('Status: ' + stat);
 
-    res.end('\nDone...');
+    res.end('\n\nDone...');
 
 }).listen(8124);
 
