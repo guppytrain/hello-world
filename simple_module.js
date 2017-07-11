@@ -3,13 +3,15 @@
  */
 
 exports.run = function (req, res) {
-    var name = "runnable template";
+    var name = "simple module";
     var status = "ERR";
 
     console.log("Starting " + name + "...");
 
     /** BEGIN **/
-    res.write("");
+    var gt_utils = require("gt_utils").GT_Utils;
+
+    gt_utils.echo("Hello Node World!");
 
     /** END **/
 

@@ -1,5 +1,23 @@
-/**
- * Created by jla on 6/17/17.
- */
-
-
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "Hello World node application.",
+  "main": "eventEmitter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guppytrain/hello-world.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guppytrain/hello-world/issues"
+  },
+  "homepage": "https://github.com/guppytrain/hello-world#readme",
+  "dependencies": {
+    "request": "2.81.0"
+  }
+}
