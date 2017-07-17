@@ -1,26 +1,44 @@
 /**
- * Created by jla on 6/17/17.
+ * Created by jla on 7/13/17.
  */
 
-var http = require('http');
+var program = require('commander');
+var runmode = require('./runmode');
+var ver = '0.0.1';
 
-// var module = require('./runnable_template');
-// var module = require('./eventEmitter');
-// var module = require('./example.2-8');
-// var module = require('./example.2-9');
-var module = require('./simple_module');
+program
+    .version(ver)
+    .option('-c, --cmd', 'Cmd Runmode')
+    .option('-w, --web', 'Web Runmode')
+    .arguments('[env]')
+    .action(handleArgs)
+    .parse(process.argv);
 
-http.createServer(function(req, res) {
-    res.writeHead(200, { 'content-type': 'text/plain'});
+function handleArgs(env) {
+    switch(env) {
+        case runmode.WEB:
+            console.log('runmode: ' + env);
 
-    res.write('Start...\n\n');
+            require('./web_runner');
+            break;
 
-    var stat = module.run(req, res);
+        default:
+            console.log('Unsupported mode: ' + env);
+            console.log('Defaulting to: ' + runmode.CMD);
 
-    res.write('Status: ' + stat);
+        case runmode.CMD:
+            if(env.match(new RegExp('/^(' + runmode.CMD + '|' + runmode.WEB + ')$/', 'i'))) {
+                console.log('runmode: ' + env);
+            }
 
-    res.end('\n\nDone...');
+            require('./cl_runner');
+            break;
+    }
+}
 
-}).listen(8124);
-
-console.log("Server running at http://127.0.0.1:8124");
+if(program.cmd === true) {
+    handleArgs(runmode.CMD);
+}
+else if(program.web === true) {
+    handleArgs(runmode.WEB);
+}

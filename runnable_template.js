@@ -3,7 +3,7 @@
  */
 
 exports.run = function (req, res) {
-    var name = "runnable template";
+    var name = "runnable";
     var status = "ERR";
 
     console.log("Starting " + name + "...");

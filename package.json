@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/guppytrain/hello-world#readme",
   "dependencies": {
+    "async": "2.5.0",
+    "commander": "2.11.0",
     "request": "2.81.0"
   }
 }
