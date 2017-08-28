@@ -1,8 +1,8 @@
 /**
- * Created by jla on 6/17/17.
+ * Created by jla on 7/29/17.
  */
 
-exports.run = function (req, res) {
+exports.run = function () {
     var name = "runnable";
     var status = "ERR";
 
