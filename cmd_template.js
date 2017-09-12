@@ -9,7 +9,7 @@ exports.run = function () {
     console.log("Starting " + name + "...");
 
     /** BEGIN **/
-    console.write("");
+    console.log("");
 
     /** END **/
 
