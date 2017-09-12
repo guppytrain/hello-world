@@ -3,13 +3,18 @@
  */
 
 exports.run = function () {
-    var name = "runnable";
+    var name = "os";
     var status = "ERR";
 
     console.log("Starting " + name + "...\n");
 
+    var os = require("os");
+
     /** BEGIN **/
-    console.log("");
+    console.log("EOL: " + os.EOL);
+    console.log("endianness: " + os.endianness());
+    console.log("tmpdir: " + os.tmpdir());
+    console.log("homedir: " + os.homedir());
 
     /** END **/
 

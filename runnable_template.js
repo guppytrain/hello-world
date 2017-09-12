@@ -6,14 +6,14 @@ exports.run = function (req, res) {
     var name = "runnable";
     var status = "ERR";
 
-    console.log("Starting " + name + "...");
+    console.log("Starting " + name + "...\n");
 
     /** BEGIN **/
-    console.write("");
+    console.log("");
 
     /** END **/
 
-    console.log(name + " DONE.");
+    console.log("\nFinishing " + name + "...");
 
     status = "OK";
 
