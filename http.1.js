@@ -4,6 +4,9 @@
 
 var http = require('http'),
     fs = require('fs'),
+    Mode = require('stat-mode'),
+    chokidar = require('chokidar'),
+    util = require('util'),
     mime = require('mime'),
     path = require('path'),
     base = __dirname + '/public_html';
@@ -14,6 +17,10 @@ http.createServer(function(req, res) {
     console.log('pathname: ' + pathname);
 
     fs.stat(pathname, function(err, stats) {
+        var mode = new Mode(stats);
+        console.log(mode.toString());
+        console.log(mode.group.read, mode.group.write, mode.group.execute);
+
         if(err) {
             console.log('stat err: ', err);
             res.writeHead(404);
@@ -31,6 +38,8 @@ http.createServer(function(req, res) {
             file.on('open', function() {
                 res.statusCode = 200;
                 file.pipe(res);
+
+                // console.log(util.inspect(stats));
             });
 
             file.on('error', function(err) {
@@ -45,7 +54,22 @@ http.createServer(function(req, res) {
             res.write('Directory access not allowed');
             res.end();
         }
-    })
+    });
+
+    var watcher = chokidar.watch('public_html/', {
+        ignored: /[\/\\]\./,
+        persistent: true
+    });
+
+    var log = console.log.bind(console);
+
+    watcher
+        .on('add', function(path) {
+            log('File', path, 'has been added!');
+        })
+        .on('unlink', function(path) {
+            log('File', path, 'has been unlinked!');
+        });
 }).listen(8124);
 
 console.log('Server running at http://localhost:8124');

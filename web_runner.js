@@ -8,7 +8,7 @@ var http = require('http');
 // var module = require('./eventEmitter');
 // var module = require('./example.2-8');
 // var module = require('./example.2-9');
-var module = require('./querystring');
+ var module = require('./querystring');
 
 http.createServer(function(req, res) {
     res.writeHead(200, { 'content-type': 'text/plain'});

@@ -19,10 +19,12 @@
   "homepage": "https://github.com/guppytrain/hello-world#readme",
   "dependencies": {
     "async": "2.5.0",
+    "chokidar": "1.7.0",
     "commander": "2.11.0",
     "mime": "1.3.6",
     "path": "0.12.7",
     "request": "2.81.0",
+    "stat-mode": "0.2.2",
     "underscore": "1.8.3"
   }
 }
