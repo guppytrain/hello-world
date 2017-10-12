@@ -12,18 +12,18 @@ var folios = {
      * ["$1", $2, $3],
      */
     tos_mkt: [
-        [".DJI", 22861.42, 1],
-        ["AGG", 109.57, 1],
-        ["EEM", 46.295, 1],
-        ["EFA", 69.3051, 1],
-        ["EMB", 116.04, 1],
-        ["GDX", 23.81, 1],
-        ["NDX", 6083.0893, 1],
-        ["RUT", 1506.9472, 1],
-        ["SPX", 2553.85, 1],
-        ["TLT", 124.825, 1],
-        ["USO", 10.24, 1],
-        ["VIX", 9.74, 1]
+        [".DJI", 1, 22861.42],
+        ["AGG", 1, 109.57],
+        ["EEM", 1, 46.295],
+        ["EFA", 1, 69.3051],
+        ["EMB", 1, 116.04],
+        ["GDX", 1, 23.81],
+        ["NDX", 1, 6083.0893],
+        ["RUT", 1, 1506.9472],
+        ["SPX", 1, 2553.85],
+        ["TLT", 1, 124.825],
+        ["USO", 1, 10.24],
+        ["VIX", 1, 9.74]
     ],
 
     /**
@@ -32,58 +32,58 @@ var folios = {
      * ["$1", $2, $3],
      */
     tos_alloc: [
-        ["AAXJ", 74.67, 1],
-        ["AGG", 109.57, 1],
-        ["AMLP", 11.3008, 1],
-        ["BKLN", 23.2064, 1],
-        ["EEM", 46.3, 1],
-        ["EFA", 69.3092, 1],
-        ["EMB", 116.0456, 1],
-        ["EWA", 22.65, 1],
-        ["EWC", 29.24, 1],
-        ["EWG", 32.87, 1],
-        ["EWH", 25.025, 1],
-        ["EWJ", 56.77, 1],
-        ["EWT", 37.55, 1],
-        ["EWU", 35.29, 1],
-        ["EWW", 52.67, 1],
-        ["EWY", 72.215, 1],
-        ["EWZ", 42.87, 1],
-        ["FXI", 45.875, 1],
-        ["GDX", 23.815, 1],
-        ["HYG", 88.36, 1],
-        ["IEF", 106.47, 1],
-        ["IEFA", 64.955, 1],
-        ["IEI", 123.35, 1],
-        ["IEMG", 55.745, 1],
-        ["INDA", 34.095, 1],
-        ["IVV", 256.63, 1],
-        ["IWM", 149.75, 1],
-        ["IYR", 81.31, 1],
-        ["LQD", 121.085, 1],
-        ["RSX", 22.38, 1],
-        ["SHV", 110.31, 1],
-        ["SHY", 84.35, 1],
-        ["SMH", 97, 1],
-        ["TIP", 113.935, 1],
-        ["TLT", 124.82, 1],
-        ["USO", 10.245, 1],
-        ["VCIT", 87.98, 1],
-        ["VCSH", 80.045, 1],
-        ["VEA", 43.985, 1],
-        ["VEU", 53.58, 1],
-        ["VNQ", 84.46, 1],
-        ["VTI", 131.38, 1],
-        ["VWO", 44.8, 1],
-        ["XLB", 58.119, 1],
-        ["XLE", 68.11, 1],
-        ["XLF", 26.18, 1],
-        ["XLI", 72.2, 1],
-        ["XLK", 60.405, 1],
-        ["XLP", 54.45, 1],
-        ["XLU", 54.555, 1],
-        ["XLV", 82.6186, 1],
-        ["XLY", 90.91, 1]
+        ["AAXJ", 1, 74.67],
+        ["AGG", 1, 109.57],
+        ["AMLP", 1, 11.3008],
+        ["BKLN", 1, 23.2064],
+        ["EEM", 1, 46.3],
+        ["EFA", 1, 69.3092],
+        ["EMB", 1, 116.0456],
+        ["EWA", 1, 22.65],
+        ["EWC", 1, 29.24],
+        ["EWG", 1, 32.87],
+        ["EWH", 1, 25.025],
+        ["EWJ", 1, 56.77],
+        ["EWT", 1, 37.55],
+        ["EWU", 1, 35.29],
+        ["EWW", 1, 52.67],
+        ["EWY", 1, 72.215],
+        ["EWZ", 1, 42.87],
+        ["FXI", 1, 45.875],
+        ["GDX", 1, 23.815],
+        ["HYG", 1, 88.36],
+        ["IEF", 1, 106.47],
+        ["IEFA", 1, 64.955],
+        ["IEI", 1, 123.35],
+        ["IEMG", 1, 55.745],
+        ["INDA", 1, 34.095],
+        ["IVV", 1, 256.63],
+        ["IWM", 1, 149.75],
+        ["IYR", 1, 81.31],
+        ["LQD", 1, 121.085],
+ //       ["RSX", 1, 22.38],
+        ["SHV", 1, 110.31],
+        ["SHY", 1, 84.35],
+        ["SMH", 1, 97],
+        ["TIP", 1, 113.935],
+        ["TLT", 1, 124.82],
+//        ["USO", 1, 10.245],
+        ["VCIT", 1, 87.98],
+        ["VCSH", 1, 80.045],
+        ["VEA", 1, 43.985],
+        ["VEU", 1, 53.58],
+        ["VNQ", 1, 84.46],
+        ["VTI", 1, 131.38],
+        ["VWO", 1, 44.8],
+        ["XLB", 1, 58.119],
+        ["XLE", 1, 68.11],
+        ["XLF", 1, 26.18],
+        ["XLI", 1, 72.2],
+        ["XLK", 1, 60.405],
+        ["XLP", 1, 54.45],
+        ["XLU", 1, 54.555],
+        ["XLV", 1, 82.6186],
+        ["XLY", 1, 90.91]
     ],
 
     ibkr: [
@@ -190,17 +190,17 @@ var folios = {
         ["TPYYX", 401.622, 8.89]
     ],
 
-    fidelityJT: [
-        ["SPAXX", 15029.98, 1.0],
-        ["FGMNX", 874.545, 11.46],
+    fidelity_jt: [
+        ["SPAXX", 15046.36, 1.00],
+        ["FGMNX", 877.549, 11.46],
         ["FIVFX", 511.247, 19.56],
         ["FPBFX", 157.035, 31.84],
         ["HLMSX", 321.958, 15.53],
-        ["MAPIX", 272.777, 18.33],
+        ["MAPIX", 274.068, 18.33],
         ["NPFFX", 240.269, 41.62],
-        ["PONDX", 2037.393, 12.34],
+        ["PONDX", 2054.468, 12.34],
         ["TEMMX", 362.582, 13.79],
-        ["THOPX", 875.657, 11.51]
+        ["THOPX", 883.325, 11.51],
     ],
 
     vanguard: [
@@ -274,10 +274,20 @@ var folioHelper = {
             var job = {
                 fh: this,
                 count: 0,
+                rowCount: 0,
                 run: function() {
                     this.count++;
 
                     console.log('add:job:count: ' + this.count);
+                    
+                    if(this.rowCount) {
+                    	// cannot add any more rows, quit
+                    	if(this.rowCount == this.fh.getRowCount()) {
+		                    console.log('cannot add any more rows, quit');
+		                    
+		                    return;
+                    	}
+                    }
 
                     this.fh.appendData();
 
@@ -287,6 +297,8 @@ var folioHelper = {
                         return;
                     }
 
+					this.rowCount = this.fh.getRowCount();
+					
                     this.fh.click(addCtrl);
 
                     setTimeout(job.run.bind(this), delay);
@@ -321,7 +333,11 @@ var folioHelper = {
 
             var c = this.getNode(costs[i]);
             c.value = sym[2];
-
+            
+            if(this.config.touchNodes) {
+            	this.touchNodes(t, u, c);
+            }
+            
             this.cursor++;
         }
 
@@ -352,6 +368,7 @@ var folioHelper = {
     config: {
         useDefaultID: true,
         defaultID: 'fidelity',
+        touchNodes: true,
     },
 
     getContainer: function() {
@@ -435,7 +452,11 @@ var folioHelper = {
         var elem = btns.firstElementChild;
 
         return elem;
-    }
+    },
+    
+    touchNodes: function(tickerNode, sharesNode, costNode) {
+    	tickerNode.onchange();
+    },
 };
 
 var fh = folioHelper;
