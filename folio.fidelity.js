@@ -1,7 +1,11 @@
 /**
- * regex
+ * regex:
+ * unknown:
  * ([\w|\:]+)\t([\d|\.|\,]+)\t([\d|\.|\,]+)
  * ["$1", $2, $3],
+ *
+ * fidelity:
+ * ([\w]+)\,([\d|\.]+)\,\$?([\d|\.|\,]+)
  */
 
 var folios = {
@@ -10,32 +14,32 @@ var folios = {
     ms: [
     ],
     fidelity: [
-        ["SPAXX", 28348.82, 1.00],
-        ["ARTRX", 834.38, 23.97],
-        ["DBLSX", 475.61, 10.05],
-        ["FAGIX", 2002.42, 10.16],
-        ["FCNTX", 173.97, 114.96],
-        ["FIVFX", 1046.57, 19.11],
-        ["FOSFX", 426.99, 46.84],
-        ["FPBFX", 648.51, 30.84],
+        ["SPAXX", 28352.14, 1.00],
+        ["ARTRX", 834.376, 23.97],
+        ["DBLSX", 477.611, 10.05],
+        ["FAGIX", 2014.802, 10.16],
+        ["FCNTX", 173.974, 114.96],
+        ["FIVFX", 1046.572, 19.11],
+        ["FOSFX", 426.985, 46.84],
+        ["FPBFX", 648.508, 30.84],
         ["FSEAX", 526.87, 37.96],
-        ["FTEMX", 1616.82, 12.37],
-        ["JAFIX", 406.87, 10.28],
-        ["JAHYX", 145.47, 8.52],
-        ["MAPIX", 1118.15, 18.03],
-        ["MAPTX", 729.40, 27.42],
-        ["MGGPX", 1054.85, 18.96],
-        ["MQIFX", 227.83, 15.59],
+        ["FTEMX", 1616.815, 12.37],
+        ["JAFIX", 408.883, 10.28],
+        ["JAHYX", 146.823, 8.52],
+        ["MAPIX", 1123.439, 18.04],
+        ["MAPTX", 729.395, 27.42],
+        ["MGGPX", 1054.852, 18.96],
+        ["MQIFX", 230.32, 15.59],
         ["MSFBX", 862.46, 23.22],
-        ["MSIQX", 187.06, 15.00],
-        ["NBHIX", 142.57, 12.48],
+        ["MSIQX", 187.059, 15.00],
+        ["NBHIX", 143.794, 12.49],
         ["OPGIX", 350.14, 57.12],
-        ["PIMIX", 346.86, 12.12],
-        ["PONDX", 1636.18, 12.33],
-        ["PRRIX", 162.66, 11.03],
-        ["TCMPX", 1325.38, 15.09],
-        ["TGEIX", 431.98, 8.17],
-        ["TPYYX", 400.13, 8.89],
+        ["PIMIX", 349.966, 12.12],
+        ["PONDX", 1649.895, 12.33],
+        ["PRRIX", 162.988, 11.03],
+        ["TCMPX", 1325.381, 15.09],
+        ["TGEIX", 435.709, 8.17],
+        ["TPYYX", 401.622, 8.89]
     ],
     vanguard: [
     ],
@@ -47,8 +51,9 @@ var folios = {
 
 
 var folioHelper = {
-    inc: 20,
-    delay: 350,
+    cursor: 0,
+    inc: 10,
+    delay: 2000,
     folio: null,
     cntr: null,
 
@@ -72,55 +77,51 @@ var folioHelper = {
     },
 
     isFilled: function() {
-        var num_rows = this.getRowCount();
-
-        return num_rows >= this.folio.length;
+        return this.cursor >= this.folio.length;
     },
 
-    addMoreRows: function(n, delay) {
-        n = n || this.inc;
+    fillFolio: function(delay) {
         delay = delay || this.delay;
 
-        var fh = this;
-        var slr = this.getContainer();
         var addCtrl = this.getAddRowsCtrl();
 
         if(addCtrl) {
             var job = {
+                fh: this,
                 count: 0,
                 run: function() {
-                    console.log('add:job:count: ' + this.count);
-
-                    fh.click(addCtrl);
-
                     this.count++;
 
-                    if(this.count >= n) {
-                        console.log('job done');
+                    console.log('add:job:count: ' + this.count);
+
+                    this.fh.appendData();
+
+                    if(this.fh.isFilled()) {
+                        console.log('folio filled');
 
                         return;
                     }
+
+                    this.fh.click(addCtrl);
 
                     setTimeout(job.run.bind(this), delay);
                 }
             }
 
-            console.log('adding ' + n + ' rows, 1 at a time...');
+            console.log('start filling folio...');
 
             job.run();
         }
     },
 
-    appendData: function(n) {
-        var cntr = this.getContainer();
-
+    appendData: function() {
         var tickers = this.getTickerElements();
         var units = this.getSharesElements();
         var costs = this.getCostElements();
 
-        n = n || Math.min(this.getRowCount(), tickers.length);
+        var n = Math.min(this.getRowCount(), tickers.length);
 
-        for(var i=0; i < n; i++) {
+        for(var i=this.cursor; i < n; i++) {
             var sym = this.folio[i];
 
             if(!sym || !tickers[i]) { break; }
@@ -135,7 +136,11 @@ var folioHelper = {
 
             var c = this.getNode(costs[i]);
             c.value = sym[2];
+
+            this.cursor++;
         }
+
+        return this.cursor;
     },
 
     submit: function() {
@@ -146,17 +151,18 @@ var folioHelper = {
 
     click: function(element) {
         if(element.click) {
-            element.cick();
+            element.click();
         }
         else {
             element.firstElementChild && element.firstElementChild.click();
         }
     },
 
+    getNode: function(elem) {
+        return elem.firstElementChild || elem;
+    },
+
     // START BROKER SPECIFIC PORTFOLIO API
-    // CLS_ID : {
-    //     container: "wlentries"
-    // },
 
     getContainer: function() {
         var cntr = document.getElementsByClassName("wlentries")[0];
@@ -229,7 +235,9 @@ var folioHelper = {
     },
 
     getAddRowsCtrl: function() {
+        var ctrl = document.getElementById('addMoreLink');
 
+        return ctrl;
     },
 
     getSubmitCtrl: function() {
@@ -237,10 +245,6 @@ var folioHelper = {
         var elem = btns.firstElementChild;
 
         return elem;
-    },
-
-    getNode: function(elem) {
-        return elem.firstElementChild || elem;
     }
 };
 
