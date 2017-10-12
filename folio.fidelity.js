@@ -58,6 +58,8 @@ var folioHelper = {
     cntr: null,
 
     init: function(fid) {
+        fid = fid || (this.config.useDefaultID && this.config.defaultID);
+
         if (fid) {
             this.setFolio(fid);
         }
@@ -163,6 +165,11 @@ var folioHelper = {
     },
 
     // START BROKER SPECIFIC PORTFOLIO API
+
+    config: {
+        useDefaultID: true,
+        defaultID: 'fidelity',
+    },
 
     getContainer: function() {
         var cntr = document.getElementsByClassName("wlentries")[0];
