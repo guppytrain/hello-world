@@ -5,7 +5,9 @@
 console.log('Running in console');
 
 // var module = require('./underscore.1');
-var module = require('./os');
+// var module = require('./os');
+// var module = require('./stream');
+var module = require('./path');
 
 console.log('Start Module...\n');
 
