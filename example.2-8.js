@@ -6,7 +6,7 @@ exports.run = function () {
     var fs = require('fs');
 
     try {
-        var data = fs.readFileSync('./apples.txt', 'utf8');
+        var data = fs.readFileSync('./sandbox/apples.txt', 'utf8');
         console.log(data);
 
         var adjData = data.replace(/[A|a]pple/g, 'orange');

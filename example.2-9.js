@@ -11,7 +11,7 @@ exports.run = function (req, res) {
     /** BEGIN **/
     var fs = require("fs");
 
-    fs.readFile('./apples.txt', 'utf8', function(err, data) {
+    fs.readFile('./sandbox/apples.txt', 'utf8', function(err, data) {
         if(err) {
             console.log(err);
         }
@@ -20,14 +20,14 @@ exports.run = function (req, res) {
 
             console.log('Writing: ' + adjData);
 
-            fs.writeFile('./oranges.txt', adjData, function(err) {
+            fs.writeFile('./sandbox/oranges.txt', adjData, function(err) {
                 if(err) {
                     console.log(err);
                 }
             });
 
 
-            fs.readFile('./oranges.txt', 'utf8', function(err, data) {
+            fs.readFile('./sandbox/oranges.txt', 'utf8', function(err, data) {
                 if (err) {
                     console.log(err);
                 }

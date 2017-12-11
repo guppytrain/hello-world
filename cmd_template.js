@@ -3,17 +3,19 @@
  */
 
 exports.run = function () {
-    var name = "runnable";
+    var mod_name = "readline";
     var status = "ERR";
 
-    console.log("Starting " + name + "...\n");
+    console.log("Starting " + mod_name + "...\n");
+
+    var mod = require(mod_name);
 
     /** BEGIN **/
     console.log("");
 
     /** END **/
 
-    console.log("\nFinishing " + name + "...");
+    console.log("\nFinishing " + mod_name + "...");
 
     status = "OK";
 
